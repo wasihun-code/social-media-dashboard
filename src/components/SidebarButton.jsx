@@ -1,14 +1,14 @@
 import React from 'react'
 import {MdOutlineDashboard} from 'react-icons/md'
 
-const SidebarButton = () => {
+const SidebarButton = ({title}) => {
   return (
-    <div className="flex flex-row gap-4 py-2.5 px-10">
-    <MdOutlineDashboard className='inline text-xl mt-1' />
+    <div className="flex flex-row gap-4 py-3 px-8">
+    <MdOutlineDashboard className='md:block text-xl mt-1' />
     <a 
       href="#" 
-      className='hidden lg:block text-lg '>
-      Dashboard
+      className='text-sm py-1'>
+      {title}
     </a>
   </div>
   )
