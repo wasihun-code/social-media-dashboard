@@ -2,7 +2,7 @@ import React from 'react'
 
 const RecentUploads = () => {
   return (
-    <div className="rounded-sm flex flex-col border-2 p-4 gap-4 m-6">
+    <div className="rounded-sm flex flex-col border-2 p-4 gap-4 m-6 ">
       <h1 className="text-xl font-bold">Recent Uploads</h1>
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-300">

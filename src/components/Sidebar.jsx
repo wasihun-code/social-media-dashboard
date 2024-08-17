@@ -8,11 +8,10 @@ const Sidebar = () => {
   const arr = ['Overview', 'Visibility', 'Content', 'Media', 'Settings', 'Help'];
 
   return (
-    <div className='flex flex-col h-screen place-content-between bg-zinc-200'>
+    <div className='flex flex-col h-screen place-content-between bg-zinc-200 px-1 sm:px-4  py-1'>
       <div className="flex flex-col">
-        <img src={logo} alt='user-image' className='w-20 sm:w-24 h-20 place-self-center border-dotted border-2'/>
-        <UserCard />
-        <div className="flex flex-col gap-2 place-self-center">
+        <img src={logo} alt='user-image' className='w-20 sm:w-24 h-20 place-self-center border-dotted border-2 mt-4'/>
+        <div className="mt-5 flex flex-col gap-2 place-self-center">
           {
             arr.map((title)=> (
               <div className='hover:bg-cyan-950 hover:text-white rounded-sm transition-all duration-300 ease-in-out'>
