@@ -8,16 +8,16 @@ import Header from './components/Header'
 import DeviceUsability from './components/DeviceUsability'
 import ProfileVisitors from './components/ProfileVisitors'
 import UserCard from './components/UserCard'
+import Auth from './components/Auth'
 
 function App() {
 
   return (
     <div className='flex flex-row bg-white h-screen'>
-      <div className='flex-shrink-0'>
+      {/* <div className='flex-shrink-0'>
         <Sidebar />
       </div>
       <div className='flex flex-col lg:flex-row overflow-auto gap-8'>
-
         <div className='flex flex-col bg-white'>
           <Overview />
           <Chart />
@@ -32,8 +32,8 @@ function App() {
           <hr />
           <DeviceUsability />
         </div>
-      </div>
-    
+      </div> */}
+      <Auth />
     </div>
 
   )
