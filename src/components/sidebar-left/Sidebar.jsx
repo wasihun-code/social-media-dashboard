@@ -1,7 +1,6 @@
 import React from 'react'
 import SidebarButton from './SidebarButton'
-import  logo from '../assets/logo.png'
-import UserCard from './UserCard'
+import  logo from '../../assets/logo.png'
 
 const Sidebar = () => {
 
@@ -23,8 +22,10 @@ const Sidebar = () => {
         
       </div>
 
-      <div className='mb-0.5 hover:bg-cyan-950 hover:text-white rounded-sm transition-all duration-300 ease-in-out'>
-        <SidebarButton title={'ogout'}/>
+      <div className="mt-5 flex flex-col gap-2 place-self-center">
+        <div className='hover:bg-cyan-950 hover:text-white rounded-sm transition-all duration-300 ease-in-out'>
+          <SidebarButton title={"Logout"}/>
+        </div>
       </div>
 
     </div>

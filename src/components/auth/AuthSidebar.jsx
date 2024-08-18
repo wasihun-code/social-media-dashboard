@@ -1,5 +1,5 @@
 import React from 'react'
-import authSide from '../assets/authSideImage2.png'
+import authSide from '../../assets/authSideImage2.png'
 
 
 const AuthSidebar = () => {

@@ -2,10 +2,10 @@ import React from 'react'
 
 const RecentUploads = () => {
   return (
-    <div className="rounded-sm flex flex-col border-2 p-4 gap-4 m-6 ">
+    <div className="rounded-sm flex flex-col p-4 gap-4 my-5 w-full shadow-xl shadow-gray-400">
       <h1 className="text-xl font-bold">Recent Uploads</h1>
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-300">
+        <table className="divide-y divide-gray-300 w-full">
           <thead className="bg-gray-100">
             <tr>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Name</th>

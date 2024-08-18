@@ -1,6 +1,6 @@
 import React from 'react'
 
-import  user from '../assets/user.jpg'
+import  user from '../../assets/user.jpg'
 
 
 const UserCard = () => {

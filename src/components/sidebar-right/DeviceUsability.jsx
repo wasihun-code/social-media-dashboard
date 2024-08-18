@@ -1,5 +1,7 @@
 import React from 'react'
-import socialGender from '../assets/socialGender.png'
+import socialGender from '../../assets/socialGender.png'
+
+
 const DeviceUsability = () => {
   return (
     <div className='flex flex-col gap-8 border-2 p-4 rounded-xl shadow-xl'>

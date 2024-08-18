@@ -1,39 +1,58 @@
 import './App.css'
-import Sidebar from './components/Sidebar'
-import Overview from './components/Overview'
-import Chart from './components/Chart'
-import RecentUploads from './components/RecentUploads'
-import { BiBellPlus, BiDownArrow, BiPlus, BiSolidDownArrow } from 'react-icons/bi'
-import Header from './components/Header'
-import DeviceUsability from './components/DeviceUsability'
-import ProfileVisitors from './components/ProfileVisitors'
-import UserCard from './components/UserCard'
-import Auth from './components/Auth'
+
+import AccountsPage from './pages/AccountsPage'
+
+import {createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import MainLayout from './layouts/MainLayout'
+import SignUp from './components/auth/SignUp'
+import AuthLayout from './layouts/AuthLayout'
+import Login from './components/auth/Login'
+
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />
+      },
+      {
+        path: "/accounts",
+        element: <AccountsPage />
+      },
+    ]
+  },
+  {
+    path: '/login',
+    element: <AuthLayout />,
+    children: [
+      {
+        index: true,
+        element: <Login />
+      }
+    ]
+  },
+  {
+    path: '/signup',
+    element: <AuthLayout />,
+    children: [
+      {
+        index: true,
+        element: <SignUp />
+      }
+    ]
+  }
+])
+
 
 function App() {
 
   return (
-    <div className='flex flex-row bg-white h-screen'>
-      {/* <div className='flex-shrink-0'>
-        <Sidebar />
-      </div>
-      <div className='flex flex-col lg:flex-row overflow-auto gap-8'>
-        <div className='flex flex-col bg-white'>
-          <Overview />
-          <Chart />
-          <RecentUploads />
-        </div>
-
-        <div className='flex flex-col h-full place-content-between gap-8 m-2 my-5'>
-          <Header />
-          <UserCard />
-          <hr />
-          <ProfileVisitors />
-          <hr />
-          <DeviceUsability />
-        </div>
-      </div> */}
-      <Auth />
+    <div className='flex flex-row bg-white h-screen w-screen'>
+      <RouterProvider router={router} />   
     </div>
 
   )

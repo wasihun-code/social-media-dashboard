@@ -1,6 +1,6 @@
 import React from 'react'
 import { CiMenuKebab } from 'react-icons/ci'
-import socialGender from '../assets/socialGender.png'
+import socialGender from '../../assets/socialGender.png'
 const ProfileVisitors = () => {
   return (
     <div className='flex flex-col gap-3 border-2 p-4 rounded-xl shadow-xl'>
