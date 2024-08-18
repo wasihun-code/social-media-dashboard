@@ -10,9 +10,10 @@ import SignUp from './SignUp'
 
 const Auth = () => {
   return (
-    <div className='grid grid-rows-1 grid-cols-2 w-screen '>
+    <div className='grid grid-cols-1 lg:grid-rows-1 lg:grid-cols-2  w-screen'>
       <SignUp />
-      <AuthSidebar />
+      {/* <Login /> */}
+      <AuthSidebar/>
     </div>
   )
 }
