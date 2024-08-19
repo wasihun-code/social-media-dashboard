@@ -3,11 +3,11 @@ import {MdOutlineDashboard} from 'react-icons/md'
 
 const SidebarButton = ({title}) => {
   return (
-    <div className="flex flex-row gap-4 py-3 px-4 ">
+    <div className="flex flex-row gap-4 mb-1 px-5 md:py-1 ">
     <MdOutlineDashboard className='hidden md:block text-xl mt-1' />
       <a 
         href="#" 
-        className='text-xs sm:text-sm md:text-md py-1 '>
+        className='md:text-md py-1 '>
         {title}
       </a>
     </div>

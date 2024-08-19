@@ -2,12 +2,13 @@ import './App.css'
 
 import AccountsPage from './pages/AccountsPage'
 
-import {createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import MainLayout from './layouts/MainLayout'
 import SignUp from './components/auth/SignUp'
 import AuthLayout from './layouts/AuthLayout'
 import Login from './components/auth/Login'
+import ProfilePage from './pages/ProfilePage'
 
 
 const router = createBrowserRouter([
@@ -20,9 +21,13 @@ const router = createBrowserRouter([
         element: <HomePage />
       },
       {
-        path: "/accounts",
+        path: "accounts",
         element: <AccountsPage />
       },
+      {
+        path: "profile",
+        element: <ProfilePage />
+      }
     ]
   },
   {
