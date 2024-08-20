@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '../../assets/logo3.png'
 import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { MdCheckBox } from 'react-icons/md'
-
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
@@ -10,16 +10,16 @@ const Login = () => {
         <img src={logo} className='mt-0 place-self-center sm:place-self-start sm:ml-4 sm:px-2 w-48' />
         <div className='flex flex-col w-max p-8 place-content-between place-self-center px-24'>
           {/** Greeting Wrapper */}
-          <div className='flex flex-row place-content-center w-full border-2 gap-2 mb-10 p-3 px-24'>
+          <Link className='flex flex-row place-content-center w-full border-2 gap-2 mb-10 p-3 px-24'>
             <BsFacebook className='text-lg place-self-center'/>
-            <a href='#' className='text-lg'>Sign Up with Facebook</a>
-          </div>
+            <h3 className='text-lg'>Sign Up with Facebook</h3>
+          </Link>
 
           {/** API Login */}
-          <div className='flex flex-row place-content-center w-full border-2 gap-2 mb-10 p-3 px-24'>
+          <Link className='flex flex-row place-content-center w-full border-2 gap-2 mb-10 p-3 px-24'>
             <BsGoogle className='text-lg place-self-center'/>
-            <a href='#' className='text-lg'>Sign Up with Google</a>
-          </div>
+            <h3 className='text-lg'>Sign Up with Google</h3>
+          </Link>
 
           {/** Fields wrapper */}
           <div className='flex flex-col gap-8 mb-4'>
@@ -38,7 +38,7 @@ const Login = () => {
 
           {/** API Login */}
           <div className='flex flex-row place-content-center w-full rounded-xl bg-black text-white gap-2 mb-10 p-3'>
-            <a href='#' className='text-xl'>LOGIN</a>
+            <a className='text-xl'>LOGIN</a>
           </div>
 
           <h1 className='text-md text-center'>Don't have an account? <span className='font-bold'>Sign Up</span></h1>

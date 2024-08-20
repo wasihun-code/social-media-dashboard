@@ -36,12 +36,12 @@ const SignUp = () => {
               <MdCheckBox className='text-xl' />
               <h4 className='text-xs'>Remember for 30 days</h4>
             </div>
-            <a className='text-xs'>Forgot Password</a>
+            <a href="#" className='text-xs'>Forgot Password</a>
           </div>
 
           {/** API Login */}
           <div className='flex flex-row place-content-center w-full rounded-xl bg-black text-white gap-2 mb-10 p-3'>
-            <a href='#' className='text-xl'>Sign Up</a>
+            <Link to='signup' className='text-xl'>Sign Up</Link>
           </div>
 
           <h1 className='text-md text-center'>Don't have an account? <span className='font-bold'>Sign Up</span></h1>
