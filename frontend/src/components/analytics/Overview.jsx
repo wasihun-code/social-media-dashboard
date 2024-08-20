@@ -5,7 +5,7 @@ import OverviewCard from './OverviewCard'
 
 const Overview = () => {
   return (
-    <div className='flex flex-col place-content-between border-red-950 shadow-xl shadow-gray-400 p-2'>
+    <div className='flex flex-col place-content-between bg-white shadow-2xl rounded-xl p-4 px-6'>
       <div className='flex flex-col place-content-between'>
         <div className='flex flex-col lg:flex-row m-4 place-content-between gap-4'>
           <h1 className='text-3xl'>Overview</h1>
