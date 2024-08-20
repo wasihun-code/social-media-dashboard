@@ -10,7 +10,7 @@ import UserCard from '../components/sidebar-right/UserCard'
 
 const HomePage = () => {
   return (
-    <div className='flex flex-col lg:flex-row overflow-auto my-5 mx-2'>
+    <div className='flex flex-col place-content-evenly lg:flex-row my-5'>
          <div className='flex flex-col bg-white'>
            <Overview />
            <Chart />
@@ -18,7 +18,7 @@ const HomePage = () => {
          </div>
 
         <div className='h-max'>
-          <div className='flex flex-col place-content-between gap-8 m-5 mx-6'>
+          <div className='flex flex-col place-content-between gap-8'>
               <Header />
               <UserCard />
               <hr />

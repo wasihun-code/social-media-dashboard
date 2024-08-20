@@ -1,5 +1,5 @@
 import React from 'react'
-import SidebarButton from './SidebarButton'
+import HeaderButton  from './HeaderButton'
 
 
 const SidebarSection = () => {
@@ -9,16 +9,16 @@ const SidebarSection = () => {
       <div className=''>
         <div className='flex flex-col gap-2'>
         <div className='thisdiv hover:bg-cyan-950 hover:text-white rounded-lg transition-all duration-300 ease-in-out'>
-          <SidebarButton/>
+          <HeaderButton />
         </div>
         <div className='thisdiv hover:bg-cyan-950 hover:text-white rounded-lg transition-all duration-300 ease-in-out'>
-          <SidebarButton />
+          <HeaderButton  />
         </div>
         <div className='thisdiv hover:bg-cyan-950 hover:text-white rounded-lg transition-all duration-300 ease-in-out'>
-          <SidebarButton />
+          <HeaderButton  />
         </div>
         <div className='thisdiv hover:bg-cyan-950 hover:text-white rounded-lg transition-all duration-300 ease-in-out'>
-          <SidebarButton />
+          <HeaderButton  />
         </div>
         </div>
       </div>

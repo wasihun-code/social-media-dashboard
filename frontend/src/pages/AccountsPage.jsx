@@ -6,8 +6,8 @@ import { BsFacebook, BsInstagram, BsLinkedin, BsSearch, BsTelegram } from 'react
 
 const AccountsPage = () => {
   return (
-    <div className='overflow-y-auto w-full'>
-      <div className='flex flex-row my-5 gap-8 overflow-y-auto mx-5 lg:w-3/4'>
+    <div className='overflow-y-auto flex flex-col w-full'>
+      <div className='flex flex-row my-5 gap-8 place-self-center mx-5 w-full sm:w-11/12'>
           <div className="flex flex-col gap-8 border-2 rounded-xl shadow-xl py-5 px-5 w-full">
             <div className='border-b-2 pb-2'>
               <h1 className="text-2xl font-bold">Connect Account</h1>
@@ -59,8 +59,8 @@ const AccountsPage = () => {
           </div>
       </div>
 
-      <div className='flex flex-row my-5 gap-8 overflow-y-auto mx-5 lg:w-3/4'>
-          <div className="flex flex-col gap-8 border-2 rounded-xl shadow-xl py-5 px-5 w-full overflow-x-auto">
+      <div className='flex flex-row my-5 gap-8 place-self-center mx-5 w-full sm:w-11/12'>
+          <div className="flex flex-col gap-8 border-2 rounded-xl shadow-xl py-5 px-5 w-full">
             <div className='border-b-2 pb-2'>
               <h1 className="text-2xl font-bold">Accounts</h1>
             </div>
@@ -76,7 +76,8 @@ const AccountsPage = () => {
               </div>
             </div>
 
-            <table className="divide-y divide-gray-300">
+            <div className="w-full overflow-x-auto">
+            <table className="divide-y divide-gray-300 w-full">
               <thead className="bg-gray-100 text-xl">
                 <tr className=''>
                   <th className="px-4 py-3 text-left font-semibold text-gray-600">Social</th>
@@ -129,7 +130,7 @@ const AccountsPage = () => {
                 </tr>
               </tbody>
             </table>
-
+            </div>
           
           </div>
       </div>
