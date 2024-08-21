@@ -1,10 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { BiPlug, BiPlus} from 'react-icons/bi'
 import { BsFacebook, BsInstagram, BsLinkedin, BsSearch, BsTelegram } from 'react-icons/bs'
+import { CgSearchLoading, CgSpinner } from 'react-icons/cg';
+import { ImSpinner } from 'react-icons/im';
 
 
 const AccountsPage = () => {
+
+  const [accounts, setAccounts] = useState([]);
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchAccounts = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/accounts")
+        const data = await res.json();
+        console.log(data)
+        setAccounts(data)
+      } catch {
+        console.log("Error Occured");
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchAccounts();
+  }, [])
+
   return (
     <div className='overflow-y-auto flex flex-col w-full'>
       <div className='flex flex-row my-5 gap-8 place-self-center mx-5 w-full sm:w-11/12'>
@@ -88,46 +110,24 @@ const AccountsPage = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 text-xl">
-                <tr className=''>
-                  <td className="px-4 py-3.5 flex flex-row gap-4">
-                    <BsFacebook className='place-self-center text-2xl' />
-                    <h1 className="text-xl">Facebook</h1>
-                  </td>
-                  <td className="px-4 py-3">Wasihun Ageru</td>
-                  <td className="px-4 py-3">Personal</td>
-                  <td className="px-4 py-3">Connected</td>
-                  <td className="px-4 py-3">2024-08-18</td>
-                </tr>
-                <tr className=''>
-                  <td className="px-4 py-3.5 flex flex-row gap-4">
-                    <BsInstagram className='place-self-center text-2xl' />
-                    <h1 className="text-xl">Instagram</h1>
-                  </td>
-                  <td className="px-4 py-3">Wase Bruno</td>
-                  <td className="px-4 py-3">Personal</td>
-                  <td className="px-4 py-3">Connected</td>
-                  <td className="px-4 py-3">2024-08-18</td>
-                </tr>
-                <tr className=''>
-                <td className="px-4 py-3.5 flex flex-row gap-4">
-                    <BsLinkedin className='place-self-center text-2xl' />
-                    <h1 className="text-xl">LinkedIn</h1>
-                  </td>
-                  <td className="px-4 py-3">Wswase Company</td>
-                  <td className="px-4 py-3">Channel</td>
-                  <td className="px-4 py-3">Disconnected</td>
-                  <td className="px-4 py-3">2024-08-15</td>
-                </tr>
-                <tr className=''>
-                <td className="px-4 py-3.5 flex flex-row gap-4">
-                    <BsTelegram className='place-self-center text-2xl' />
-                    <h1 className="text-xl">Telegram</h1>
-                  </td>
-                  <td className="px-4 py-3">Crypto World</td>
-                  <td className="px-4 py-3">Group</td>
-                  <td className="px-4 py-3">Connected</td>
-                  <td className="px-4 py-3">2024-08-18</td>
-                </tr>
+                {
+                  loading ? 
+                      <ImSpinner className='place-self-center text-5xl w-full'/>
+                    :
+                  
+                   accounts.map((account) => (
+                    <tr key={accounts.id} className=''>
+                      <td className="px-4 py-3.5 flex flex-row gap-4">
+                        <BsFacebook className='place-self-center text-2xl' />
+                        <h1 className="text-xl">{account.social}</h1>
+                      </td>
+                      <td className="px-4 py-3">{account.name}</td>
+                      <td className="px-4 py-3">{account.type}</td>
+                      <td className="px-4 py-3">{account.status}</td>
+                      <td className="px-4 py-3">{account.lastConnected}</td>
+                    </tr>      
+                  ))
+                }
               </tbody>
             </table>
             </div>

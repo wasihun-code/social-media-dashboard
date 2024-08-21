@@ -10,14 +10,14 @@ import UserCard from '../components/sidebar-right/UserCard'
 
 const HomePage = () => {
   return (
-    <div className='flex flex-col place-content-evenly lg:flex-row  '>
+    <div className='flex flex-col place-content-evenly lg:flex-row  bg-neutral-50'>
          <div className='flex flex-col gap-4 my-5'>
            <Overview />
            <Chart />
            <RecentUploads />
          </div>
 
-          <div className='flex flex-col my-5 gap-10 h-full border-2 border-red-900 p-2'>
+          <div className='flex flex-col my-5 gap-10 h-full'>
             <Header />
             <UserCard />
             <ProfileVisitors />

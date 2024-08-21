@@ -1,0 +1,197 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Wasihun",
+      "lastName": "Ageru",
+      "email": "wasebruno123@gmail.com",
+      "phone": "+01 235 42 1234",
+      "bio": "Team Manager",
+      "country": "Ethiopia",
+      "cityState": "Rajkot, Gujarat",
+      "postalCode": "360003",
+      "profileImage": "../src/assets/user.jpg",
+      "notifications": {
+        "email": true,
+        "sms": false,
+        "inApp": true
+      },
+      "security": {
+        "password": "hashedPassword1",
+        "twoFactorAuthEnabled": true,
+        "twoFactorPhone": "+01 234 56 7890"
+      }
+    },
+    {
+      "id": 2,
+      "firstName": "Liya",
+      "lastName": "Tesfaye",
+      "email": "liyatesfaye@example.com",
+      "phone": "+02 987 65 4321",
+      "bio": "Software Engineer",
+      "country": "Kenya",
+      "cityState": "Nairobi, Nairobi County",
+      "postalCode": "00100",
+      "profileImage": "../src/assets/user.jpg",
+      "notifications": {
+        "email": false,
+        "sms": true,
+        "inApp": false
+      },
+      "security": {
+        "password": "hashedPassword2",
+        "twoFactorAuthEnabled": false,
+        "twoFactorPhone": ""
+      }
+    },
+    {
+      "id": 3,
+      "firstName": "Samuel",
+      "lastName": "Kebede",
+      "email": "samuelkebede@example.com",
+      "phone": "+03 456 78 1234",
+      "bio": "Product Manager",
+      "country": "Uganda",
+      "cityState": "Kampala, Central Region",
+      "postalCode": "256001",
+      "profileImage": "../src/assets/user.jpg",
+      "notifications": {
+        "email": true,
+        "sms": true,
+        "inApp": true
+      },
+      "security": {
+        "password": "hashedPassword3",
+        "twoFactorAuthEnabled": true,
+        "twoFactorPhone": "+03 321 45 6789"
+      }
+    },
+    {
+      "id": 4,
+      "firstName": "Marta",
+      "lastName": "Gebremichael",
+      "email": "martagebremichael@example.com",
+      "phone": "+04 789 01 2345",
+      "bio": "UX Designer",
+      "country": "Ethiopia",
+      "cityState": "Addis Ababa, Addis Ababa",
+      "postalCode": "1000",
+      "profileImage": "../src/assets/user.jpg",
+      "notifications": {
+        "email": false,
+        "sms": false,
+        "inApp": true
+      },
+      "security": {
+        "password": "hashedPassword4",
+        "twoFactorAuthEnabled": false,
+        "twoFactorPhone": ""
+      }
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "social": "Facebook",
+      "name": "Wasihun Ageru",
+      "type": "Personal",
+      "status": "Connected",
+      "lastConnected": "2024-08-18",
+      "userId": 1,
+      "followers": 48245,
+      "likes": 245,
+      "comments": 100
+    },
+    {
+      "id": 2,
+      "social": "Instagram",
+      "name": "Liya Tesfaye",
+      "type": "Personal",
+      "status": "Connected",
+      "lastConnected": "2024-08-18",
+      "userId": 2,
+      "followers": 48200,
+      "likes": 300,
+      "comments": 200
+    },
+    {
+      "id": 3,
+      "social": "LinkedIn",
+      "name": "Samuel Kebede",
+      "type": "Channel",
+      "status": "Disconnected",
+      "lastConnected": "2024-08-15",
+      "userId": 3,
+      "followers": 45000,
+      "likes": 400,
+      "comments": 150
+    },
+    {
+      "id": 4,
+      "social": "Telegram",
+      "name": "Crypto World",
+      "type": "Group",
+      "status": "Connected",
+      "lastConnected": "2024-08-18",
+      "userId": 4,
+      "followers": 50000,
+      "likes": 500,
+      "comments": 300
+    }
+  ],
+  "recentUploads": [
+    {
+      "id": 1,
+      "name": "New",
+      "data": "Hamster",
+      "views": 200,
+      "likes": 50,
+      "comments": 20,
+      "accountId": 1
+    },
+    {
+      "id": 2,
+      "name": "New Listing",
+      "data": "Hamster Announcement",
+      "views": 150,
+      "likes": 30,
+      "comments": 10,
+      "accountId": 2
+    },
+    {
+      "id": 3,
+      "name": "Another Update",
+      "data": "Cats vs Dogs",
+      "views": 2000,
+      "likes": 1000,
+      "comments": 450,
+      "accountId": 3
+    }
+  ],
+  "profileVisitors": [
+    {
+      "id": 1,
+      "accountId": 1,
+      "malePercentage": 20,
+      "femalePercentage": 43
+    },
+    {
+      "id": 2,
+      "accountId": 2,
+      "malePercentage": 30,
+      "femalePercentage": 40
+    },
+    {
+      "id": 3,
+      "accountId": 3,
+      "malePercentage": 25,
+      "femalePercentage": 45
+    },
+    {
+      "id": 4,
+      "accountId": 4,
+      "malePercentage": 28,
+      "femalePercentage": 42
+    }
+  ]
+}
