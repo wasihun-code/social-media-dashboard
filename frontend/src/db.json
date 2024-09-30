@@ -89,6 +89,24 @@
       }
     }
   ],
+  "platforms": [
+    {
+      "id": 1,
+      "social": "Facebook"
+    },
+    {
+      "id": 2,
+      "social": "Instagram"
+    },
+    {
+      "id": 3,
+      "social": "LinkedIn"
+    },
+    {
+      "id": 4,
+      "social": "Telegram"
+    }
+  ],
   "accounts": [
     {
       "id": 1,
@@ -98,9 +116,23 @@
       "status": "Connected",
       "lastConnected": "2024-08-18",
       "userId": 1,
-      "followers": 48245,
-      "likes": 245,
-      "comments": 100
+      "metrics": [
+        {
+          "title": "Followers",
+          "count": 48245,
+          "percent": 21
+        },
+        {
+          "title": "Likes",
+          "count": 245,
+          "percent": 21
+        },
+        {
+          "title": "Comments",
+          "count": 100,
+          "percent": 21
+        }
+      ]
     },
     {
       "id": 2,
@@ -110,9 +142,23 @@
       "status": "Connected",
       "lastConnected": "2024-08-18",
       "userId": 2,
-      "followers": 48200,
-      "likes": 300,
-      "comments": 200
+      "metrics": [
+        {
+          "title": "Followers",
+          "count": 48200,
+          "percent": 21
+        },
+        {
+          "title": "Likes",
+          "count": 300,
+          "percent": 21
+        },
+        {
+          "title": "Comments",
+          "count": 200,
+          "percent": 21
+        }
+      ]
     },
     {
       "id": 3,
@@ -122,9 +168,23 @@
       "status": "Disconnected",
       "lastConnected": "2024-08-15",
       "userId": 3,
-      "followers": 45000,
-      "likes": 400,
-      "comments": 150
+      "metrics": [
+        {
+          "title": "Followers",
+          "count": 45000,
+          "percent": 21
+        },
+        {
+          "title": "Likes",
+          "count": 400,
+          "percent": 21
+        },
+        {
+          "title": "Comments",
+          "count": 150,
+          "percent": 21
+        }
+      ]
     },
     {
       "id": 4,
@@ -134,9 +194,23 @@
       "status": "Connected",
       "lastConnected": "2024-08-18",
       "userId": 4,
-      "followers": 50000,
-      "likes": 500,
-      "comments": 300
+      "metrics": [
+        {
+          "title": "Followers",
+          "count": 50000,
+          "percent": 21
+        },
+        {
+          "title": "Likes",
+          "count": 500,
+          "percent": 21
+        },
+        {
+          "title": "Comments",
+          "count": 300,
+          "percent": 21
+        }
+      ]
     }
   ],
   "recentUploads": [

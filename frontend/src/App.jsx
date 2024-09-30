@@ -3,19 +3,21 @@ import './App.css'
 import AccountsPage from './pages/AccountsPage'
 
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+
 import HomePage from './pages/HomePage'
+
 import MainLayout from './layouts/MainLayout'
-import SignUp from './components/auth/SignUp'
 import AuthLayout from './layouts/AuthLayout'
-import Login from './components/auth/Login'
 import ProfileLayout from './layouts/ProfileLayout'
-import GeneralSettings from './components/GeneralSettings'
-import SecuritySettings from './components/SecuritySettings'
-import AccountsSetting from './components/AccountsSetting'
-import NotificationSetting from './components/NotificationSetting'
-import DeleteAccount from './components/DeleteAccount'
 
+import SignUp from './components/auth/SignUp'
+import Login from './components/auth/Login'
 
+import GeneralSettings from './components/profile/GeneralSettings'
+import SecuritySettings from './components/profile/SecuritySettings'
+import AccountsSetting from './components/profile/AccountsSetting'
+import NotificationSetting from './components/profile/NotificationSetting'
+import DeleteAccount from './components/profile/DeleteAccount'
 
 
 const router = createBrowserRouter([
@@ -83,7 +85,7 @@ const router = createBrowserRouter([
         element: <SignUp />
       }
     ]
-  }
+  }, 
 ])
 
 

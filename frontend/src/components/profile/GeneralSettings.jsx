@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { BiEdit, BiUser } from 'react-icons/bi'
-import userImg from '../assets/user.jpg'
-import UserContext from '../providers/UserProvider'
+import UserContext from '../../providers/UserProvider'
+import { Link } from 'react-router-dom';
 
 
 const GeneralSettings = () => {
   const user = useContext(UserContext);
-  
+
   return (
     <>
       {/**Form Row */}
       <div className="flex flex-col lg:flex-row place-content-between border-1 rounded-xl p-2 border-2 w-full md:w-11/12">
         <div className="flex flex-row gap-4 p-2 w-max">
-          <img src={userImg} className='rounded-full w-32 h-32 text-3xl' />
+          <img src={user.profileImage} className='rounded-full w-32 h-32 text-3xl' />
           <div className="flex flex-col gap-3 place-self-center">
             <h1 className="font-bold text-lg">{user.firstName} {user.lastName}</h1>
             <h2 className="text-md">{user.bio}</h2>
@@ -20,10 +20,10 @@ const GeneralSettings = () => {
           </div>
         </div>
         {/**Edit Button */}
-        <div className="flex flex-row gap-4 border-2 mr-10 px-4 py-2 rounded-xl place-self-center ">
-          <h3 className="text-gray-800">Edit</h3>
+        <Link className="flex flex-row gap-4 hover:text-white hover:bg-black border-2 mr-10 px-4 py-2 rounded-xl place-self-center ">
+          <h3 className="">Edit</h3>
           <BiEdit className='text-xl place-self-center' />
-        </div>
+        </Link>
       </div>
 
       {/**Personal Information*/}
@@ -54,10 +54,10 @@ const GeneralSettings = () => {
           </div>
         </div>
 
-        <div className="flex flex-row gap-4 border-2 mr-10 px-4 py-2 rounded-xl place-self-center lg:place-self-start">
-          <h3 className="text-gray-800">Edit</h3>
+        <Link className="flex flex-row gap-4  hover:text-white hover:bg-black border-2 mr-10 px-4 py-2 rounded-xl place-self-center lg:place-self-start">
+          <h3 className="">Edit</h3>
           <BiEdit className='text-xl place-self-center' />
-        </div>
+        </Link>
       </div>
 
       {/**Address Information*/}
@@ -80,10 +80,10 @@ const GeneralSettings = () => {
           </div>
         </div>
 
-        <div className="flex flex-row gap-4 border-2 mr-10 px-4 py-2 rounded-xl place-self-center lg:place-self-start">
-          <h3 className="text-gray-800">Edit</h3>
+        <Link className="flex flex-row gap-4 hover:text-white hover:bg-black border-2 mr-10 px-4 py-2 rounded-xl place-self-center lg:place-self-start">
+          <h3 className="">Edit</h3>
           <BiEdit className='text-xl place-self-center' />
-        </div>
+        </Link>
       </div>
     </>
   )

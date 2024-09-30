@@ -1,7 +1,5 @@
 import React from 'react'
-import { BiEdit } from 'react-icons/bi'
-import userImg from '../assets/user.jpg'
-import { MdPassword, MdVisibility } from 'react-icons/md'
+import { MdVisibility } from 'react-icons/md'
 import { BsExclamation } from 'react-icons/bs'
 
 

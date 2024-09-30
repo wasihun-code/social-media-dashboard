@@ -3,12 +3,15 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import {UserProvider} from './providers/UserProvider.jsx'
+import {AccountsProvider} from './providers/AccountsProvider.jsx'
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <UserProvider>
-      <App />
+      <AccountsProvider>
+        <App />
+      </AccountsProvider>
     </UserProvider>
   </StrictMode>,
 )
