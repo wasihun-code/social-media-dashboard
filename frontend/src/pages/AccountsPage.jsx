@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { BiPlug, BiPlus} from 'react-icons/bi'
-import { BsFacebook, BsInstagram, BsLinkedin, BsSearch, BsTelegram } from 'react-icons/bs'
+
 import { ImSpinner } from 'react-icons/im';
 import AccountsContext from '../providers/AccountsProvider';
 import ManageAccount from '../components/Accounts/ManageAccount';
@@ -8,17 +8,28 @@ import { Link } from 'react-router-dom';
 
 
 const AccountsPage = () => {
+  const [accounts, loading] = useContext(AccountsContext);
 
   const [platforms, setPlatforms] = useState([]);
   const [loadingPlatforms, setLoadingPlatforms] = useState(false)
 
+  const connectedPlatforms = accounts.map(account => account.platform);
+  console.log(connectedPlatforms);
+
   useEffect(() => {
     const fetchPlatforms = async () => {
       try {
-        const res = await fetch("http://localhost:3000/platforms")
+        const res = await fetch("http://127.0.0.1:8000/api/platform/")
+        
+        if (!res.ok) {
+          throw new Error("Network Error: Fetching Platforms to Connect")
+        }
+
         const data = await res.json()
 
-        setPlatforms(data);
+        const availablePlatforms = data.filter(platform => !connectedPlatforms.includes(platform.id));
+        setPlatforms(availablePlatforms);
+
       } catch {
         console.log("Fetching Platforms failed")
       } finally {
@@ -29,7 +40,6 @@ const AccountsPage = () => {
   }, [])
 
 
-  const [accounts, loading] = useContext(AccountsContext);
   
   
 
@@ -50,10 +60,11 @@ const AccountsPage = () => {
                 :
                 platforms.map((platform, index) => (
                   <div key={platform.id} className="flex flex-col gap-4 sm:flex-row sm:place-content-between border-2 px-6 py-4 rounded-xl">
-                    <div className="flex flex-row gap-4">
-                      <BsFacebook className='place-self-center text-2xl'/>
-                      <h1 className="text-2xl place-self-center">{platform.social}</h1>
-                    </div>
+                   
+                      <div className="flex flex-row gap-4">
+                        {/** <BsFacebook className='place-self-center text-2xl'/>**/}
+                        <h1 className="text-2xl place-self-center">{platform.name}</h1>
+                      </div>
                     <Link className="flex flex-row gap-2 hover:text-white hover:bg-black place-self-end border-2   p-2 rounded-xl">
                       <BiPlug className='place-self-center'/>
                       <h1 className="text-xl">Connect</h1>

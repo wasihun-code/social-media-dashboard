@@ -1,6 +1,7 @@
 import React from 'react'
-import Header from '../components/sidebar-left/Sidebar'
+import Header from '../components/layouts/Header'
 import { Outlet } from 'react-router-dom'
+import Footer from '../components/layouts/Footer'
 
 const MainLayout = () => {
   return (
@@ -8,7 +9,12 @@ const MainLayout = () => {
       <div className='flex-shrink-0 top-0 sticky'>
         <Header />
       </div>
-      <Outlet />
+      <div className="flex-grow">
+        <Outlet />
+      </div>
+      <div className="">
+        <Footer />
+      </div>
   </div>
   )
 }

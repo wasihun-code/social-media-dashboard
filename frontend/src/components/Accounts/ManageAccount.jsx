@@ -47,12 +47,12 @@ const ManageAccount = ({accounts, loading}) => {
                 <tr key={account.id}>
                   <td className="px-4 py-3.5 flex flex-row gap-4">
                     <BsFacebook className='place-self-center text-2xl' />
-                    <h1 className="text-xl">{account.social}</h1>
+                    <h1 className="text-xl">{account.platform_name}</h1>
                   </td>
                   <td className="px-4 py-3">{account.name}</td>
                   <td className="px-4 py-3">{account.type}</td>
                   <td className="px-4 py-3">{account.status}</td>
-                  <td className="px-4 py-3">{account.lastConnected}</td>
+                  <td className="px-4 py-3">{account.last_connected}</td>
                 </tr>      
                 ))
             }
