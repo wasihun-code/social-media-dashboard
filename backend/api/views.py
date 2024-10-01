@@ -43,9 +43,32 @@ class PlatformViewSet(ModelViewSet):
 
 
 class AccountViewSet(ModelViewSet):
-  queryset = Account.objects.all()
-  serializer_class = AccountSerializer
-  # permission_classes = [IsAdminUser]
+    serializer_class = AccountSerializer
+    queryset = Account.objects.all()  # Explicitly define queryset here
+
+    def get_queryset(self):
+        queryset = Account.objects.all()
+        
+        # Get query parameters
+        user_id = self.request.query_params.get('user', None)
+        status = self.request.query_params.get('status', None)
+        account_type = self.request.query_params.get('type', None)
+        platform_name = self.request.query_params.get('platform_name', None)
+
+        # Apply filters based on query parameters
+        if user_id is not None:
+            queryset = queryset.filter(user_id=user_id)
+        
+        if status is not None:
+            queryset = queryset.filter(status=status)
+        
+        if account_type is not None:
+            queryset = queryset.filter(type=account_type)
+
+        if platform_name is not None:
+            queryset = queryset.filter(platform__name=platform_name)
+
+        return queryset
 
 
 class AccountMetricViewSet(ModelViewSet):

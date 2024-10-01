@@ -4,6 +4,7 @@ from .models import (
    User, UserLocalInfo, UserNotification, 
 )
 from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 
 class UserSerializer(ModelSerializer):
   class Meta:
@@ -30,9 +31,10 @@ class PlatformSerializer(ModelSerializer):
 
 
 class AccountSerializer(ModelSerializer):
+    platform_name = serializers.CharField(source='platform.name', read_only=True)
     class Meta:
       model = Account
-      fields = '__all__'
+      fields = ['id', 'name', 'type', 'user', 'status', 'last_connected', 'platform_name', 'platform']
 
 
 class AccountMetricSerializer(ModelSerializer):
