@@ -10,10 +10,14 @@ export const UserProvider = ({children}) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        
-        const res = await fetch("http://localhost:3000/users/1");
+        const res = await fetch("http://localhost:8000/api/user/2");
+
+        if (!res.ok) {
+          throw new Error("Fetching User Information Failed");
+        }
+
         const data = await res.json();
-       
+        console.log(data);
         setUser(data);
       } catch {
         console.log("Error occured")

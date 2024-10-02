@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { MdVisibility } from 'react-icons/md'
 import { BsExclamation } from 'react-icons/bs'
+import UserContext from '../../providers/UserProvider'
 
 
 const SecuritySettings = () => {
+  
+  const user = useContext(UserContext);
+  
+  
   return (
     <>
       <div className="flex flex-col lg:flex-row  rounded-xl p-2 border-2 w-full md:w-11/12">
@@ -40,17 +45,28 @@ const SecuritySettings = () => {
           <hr className='my-2'/>
           <div className='grid grid-rows-1 grid-cols-1 lg:grid-cols-3 place-content-between gap-4'>
             <h1 className="font-normal text-xl mb-4">Two Factor Authentication</h1>
-            <div className="flex col-span-2 flex-col gap-4">
-              <div className="flex flex-row gap-4">
-                <input  type='password' className="rounded-lg py-1 px-3 sm:w-3/4 border-2"  placeholder='Phone Number' />
+            
+            {
+              false ? 
+                <button type="button" className="place-self-start border-2 hover:text-white hover:bg-black px-4 py-2 rounded-xl">
+                  <h1>Disable 2FA</h1>
+                </button>     
+              :
+              <div className="flex col-span-2 flex-col gap-4">
+                
+                <div className="flex flex-row gap-4">
+                  <input  type='password' className="rounded-lg py-1 px-3 sm:w-3/4 border-2"  placeholder='Phone number with country code' />
+                  <button type="button" className="place-self-start border-2 hover:text-white hover:bg-blue-500 px-4 py-2 rounded-xl">
+                    <h1>Get Code</h1>
+                  </button>   
+                </div>
                 <button type="button" className="place-self-start border-2 hover:text-white hover:bg-blue-500 px-4 py-2 rounded-xl">
-                  <h1>Get Code</h1>
-                </button>   
-              </div>
-              <button type="button" className="place-self-start border-2 hover:text-white hover:bg-blue-500 px-4 py-2 rounded-xl">
-                <h1>Enable 2FA</h1>
-              </button>     
-            </div>
+                  <h1>Enable 2FA</h1>
+                </button>     
+              </div>  
+
+            }
+            
           </div>
           <button type="button" className="place-self-end border-2 text-white bg-black hover:text-lg  px-4 py-2 rounded-xl">
             Save Changes
