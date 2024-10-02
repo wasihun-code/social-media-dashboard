@@ -1,7 +1,7 @@
 from .models import (
    Platform,
    Account, AccountMetric,
-   User, UserLocalInfo, UserNotification, 
+   User, UserLocalInfo, UserNotification, UserSecurityInfo
 )
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
@@ -21,7 +21,26 @@ class UserLocalInfoSerializer(ModelSerializer):
 class UserNotificationSerializer(ModelSerializer):
   class Meta:
     model = UserNotification
-    fields = '__all__'
+    fields = ['email_notification', 'in_app_notification', 'sms_notification']
+
+
+class UserSecuritySerializer(ModelSerializer):
+   class Meta:
+      model = UserSecurityInfo
+      fields = ['two_factor_auth_enabled', 'two_factor_phone']
+  
+
+class UserCombinedSerializer(serializers.ModelSerializer):
+  local_info = UserLocalInfoSerializer()
+  notifications = UserNotificationSerializer()
+  security = UserSecuritySerializer(source='security_info')
+
+  class Meta:
+      model = User
+      fields = [
+        'id', 'first_name', 'last_name', 'email', 'phone', 'bio', 'profile_image', 
+        'local_info', 'notifications', 'security'  
+      ]
 
 
 class PlatformSerializer(ModelSerializer):
