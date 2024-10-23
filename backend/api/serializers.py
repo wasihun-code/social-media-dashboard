@@ -1,46 +1,38 @@
 from .models import (
    Platform,
    Account, AccountMetric,
-   User, UserLocalInfo, UserNotification, UserSecurityInfo
+   User,
 )
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
 
+
 class UserSerializer(ModelSerializer):
-  class Meta:
-    model = User
-    fields = '__all__'
+    profile_image = serializers.SerializerMethodField()
+
+    class Meta:
+        model = User
+        fields = '__all__'
+        extra_kwargs = {
+            'email': {'required': False},  # Not required for updates
+            'first_name': {'required': False},  # Optional for updates
+            'last_name': {'required': False},  # Optional for updates
+            'password': {'required': False}, #optional for updates
+            # Add other fields you want to allow to be optional for updates
+        }
+
+    def validate_email(self, value):
+        if self.instance:
+            # Skip unique check for the current user's email
+            if User.objects.filter(email=value).exclude(id=self.instance.id).exists():
+                raise serializers.ValidationError("This email is already in use.")
+        return value
 
 
-class UserLocalInfoSerializer(ModelSerializer):
-  class Meta:
-    model = UserLocalInfo
-    fields = '__all__'
-
-
-class UserNotificationSerializer(ModelSerializer):
-  class Meta:
-    model = UserNotification
-    fields = ['email_notification', 'in_app_notification', 'sms_notification']
-
-
-class UserSecuritySerializer(ModelSerializer):
-   class Meta:
-      model = UserSecurityInfo
-      fields = ['two_factor_auth_enabled', 'two_factor_phone']
-  
-
-class UserCombinedSerializer(serializers.ModelSerializer):
-  local_info = UserLocalInfoSerializer()
-  notifications = UserNotificationSerializer()
-  security = UserSecuritySerializer(source='security_info')
-
-  class Meta:
-      model = User
-      fields = [
-        'id', 'first_name', 'last_name', 'email', 'phone', 'bio', 'profile_image', 
-        'local_info', 'notifications', 'security'  
-      ]
+    def get_profile_image(self, obj):
+        if obj.profile_image:  # Assuming profile_image is a FileField or ImageField
+            return self.context['request'].build_absolute_uri(obj.profile_image.url)
+        return None
 
 
 class PlatformSerializer(ModelSerializer):
@@ -54,6 +46,12 @@ class AccountSerializer(ModelSerializer):
     class Meta:
       model = Account
       fields = ['id', 'name', 'type', 'user', 'status', 'last_connected', 'platform_name', 'platform']
+      extra_kwargs = {
+          'name': {'required': False},
+          'type': {'required': False},
+          'platform': {'required': False},
+          'user': {'required': False},
+      }
 
 
 class AccountMetricSerializer(ModelSerializer):

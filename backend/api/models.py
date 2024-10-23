@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.utils import timezone
 
@@ -11,41 +12,20 @@ class User(models.Model):
     bio = models.TextField(max_length=224, null=True, blank=True)
     profile_image = models.ImageField(upload_to='profile_images/', null=True, blank=True)
 
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+    email_notification = models.BooleanField(default=True)
+    sms_notification = models.BooleanField(default=False)
+    in_app_notification = models.BooleanField(default=True)
 
+    country = models.CharField(max_length=24, null=True, blank=True, default=None)
+    city_state = models.CharField(max_length=48, null=True, blank=True, default=None)
+    postal_code = models.CharField(max_length=12, null=True, blank=True, default=None)
 
-# User Local Information
-class UserLocalInfo(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="local_info")
-    country = models.CharField(max_length=24)
-    city_state = models.CharField(max_length=48)
-    postal_code = models.CharField(max_length=12)
-
-    def __str__(self):
-        return f"{self.city_state}, {self.country}"
-
-
-# User Security Information
-class UserSecurityInfo(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="security_info")
     password = models.CharField(max_length=128)  # Store the hashed password
     two_factor_auth_enabled = models.BooleanField(default=False)
     two_factor_phone = models.CharField(max_length=24, null=True, blank=True)
 
     def __str__(self):
-        return f"Security for {self.user.email}"
-
-
-# User Notification Preferences
-class UserNotification(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="notifications")
-    email_notification = models.BooleanField(default=True)
-    sms_notification = models.BooleanField(default=False)
-    in_app_notification = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f"Notifications for {self.user.email}"
+        return f"{self.first_name} {self.last_name}"
 
 
 # Social Media Platforms
@@ -74,7 +54,7 @@ class Account(models.Model):
     name = models.CharField(max_length=128)
     type = models.CharField(max_length=16, choices=ACCOUNT_TYPE_CHOICES)
     status = models.CharField(max_length=16, choices=STATUS_CHOICES)
-    last_connected = models.DateField(default=timezone.now)
+    last_connected = models.DateField(default=datetime.date.today)
 
     def __str__(self):
         return f"{self.name} - {self.platform.name}"

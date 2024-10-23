@@ -14,17 +14,18 @@ export const AccountsProvider = ({children}) => {
   useEffect(() => {
     const fetchAccounts = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/account?user=2")
+        const res = await fetch("http://127.0.0.1:9000/api/accounts?user=1")
+        
         if (!res.ok) {
           throw new Error ("Fetching accounts failed.")
         }
+
         const data = await res.json();
-        // console.log(data)
-        setAccounts(data)
-      } catch {
-        console.log("Error Occured");
-      } finally {
+
+        setAccounts(data);
         setLoading(false);
+      } catch {
+        console.log("Error Occured while fetching user account");
       }
     }
     fetchAccounts();

@@ -14,12 +14,12 @@ const AccountsPage = () => {
   const [loadingPlatforms, setLoadingPlatforms] = useState(false)
 
   const connectedPlatforms = accounts.map(account => account.platform);
-  console.log(connectedPlatforms);
+  // console.log(connectedPlatforms);
 
   useEffect(() => {
     const fetchPlatforms = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/platform/")
+        const res = await fetch("http://127.0.0.1:9000/api/platforms")
         
         if (!res.ok) {
           throw new Error("Network Error: Fetching Platforms to Connect")

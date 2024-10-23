@@ -7,21 +7,15 @@
       "phone": "+01 111 22 3333",
       "bio": "Digital Marketing Specialist",
       "profile_image": "../src/assets/user.jpg",
-      "local_info": {
-        "country": "USA",
-        "city_state": "New York, NY",
-        "postal_code": "10001"
-      },
-      "notifications": {
-        "email_notification": true,
-        "sms_notification": true,
-        "in_app_notification": false
-      },
-      "security_info": {
-        "password": "hashedPassword3",
-        "two_factor_auth_enabled": true,
-        "two_factor_phone": "+01 987 65 4321"
-      }
+      "country": "USA",
+      "city_state": "New York, NY",
+      "postal_code": "10001",
+      "email_notification": true,
+      "sms_notification": true,
+      "in_app_notification": false,
+      "password": "hashedPassword3",
+      "two_factor_auth_enabled": true,
+      "two_factor_phone": "+01 987 65 4321"
     },
     {
       "first_name": "Emma",
@@ -30,21 +24,15 @@
       "phone": "+01 444 55 6666",
       "bio": "Content Creator",
       "profile_image": "../src/assets/user.jpg",
-      "local_info": {
-        "country": "Canada",
-        "city_state": "Toronto, ON",
-        "postal_code": "M5H 2N2"
-      },
-      "notifications": {
-        "email_notification": false,
-        "sms_notification": true,
-        "in_app_notification": true
-      },
-      "security_info": {
-        "password": "hashedPassword4",
-        "two_factor_auth_enabled": false,
-        "two_factor_phone": ""
-      }
+      "country": "Canada",
+      "city_state": "Toronto, ON",
+      "postal_code": "M5H 2N2",
+      "email_notification": false,
+      "sms_notification": true,
+      "in_app_notification": true,
+      "password": "hashedPassword4",
+      "two_factor_auth_enabled": false,
+      "two_factor_phone": ""
     },
     {
       "first_name": "Michael",
@@ -53,21 +41,15 @@
       "phone": "+01 777 88 9999",
       "bio": "Web Developer",
       "profile_image": "../src/assets/user.jpg",
-      "local_info": {
-        "country": "UK",
-        "city_state": "London",
-        "postal_code": "EC1A 1BB"
-      },
-      "notifications": {
-        "email_notification": true,
-        "sms_notification": false,
-        "in_app_notification": true
-      },
-      "security_info": {
-        "password": "hashedPassword5",
-        "two_factor_auth_enabled": true,
-        "two_factor_phone": "+01 654 32 1098"
-      }
+      "country": "UK",
+      "city_state": "London",
+      "postal_code": "EC1A 1BB",
+      "email_notification": true,
+      "sms_notification": false,
+      "in_app_notification": true,
+      "password": "hashedPassword5",
+      "two_factor_auth_enabled": true,
+      "two_factor_phone": "+01 654 32 1098"
     }
   ],
   "platforms": [

@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from rest_framework.generics import (
+    ListCreateAPIView,
+    RetrieveUpdateDestroyAPIView, RetrieveDestroyAPIView, UpdateAPIView, RetrieveAPIView, DestroyAPIView
+)
 from django.http import HttpResponse
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import IsAdminUser
+
 
 from .models import (
   User,
@@ -10,21 +13,22 @@ from .models import (
   AccountMetric,
 )
 from .serializers import (
-  AccountSerializer, 
-  PlatformSerializer,
-  AccountMetricSerializer,
-  UserCombinedSerializer,
+    AccountSerializer,
+    PlatformSerializer,
+    AccountMetricSerializer,
+    UserSerializer,
 )
 
-def home(request):
-  return HttpResponse("Hello World")
 
-
-# [IsAdmin | IsStaff]
 class UserViewSet(ModelViewSet):
   queryset = User.objects.all()
-  serializer_class = UserCombinedSerializer
-  # permission_classes = [IsAdminUser]
+  serializer_class = UserSerializer
+
+  def put(self, request, *args, **kwargs):
+    return self.partial_update(request, *args, **kwargs)
+
+  def patch(self, request, *args, **kwargs):
+    return self.partial_update(request, *args, **kwargs)
 
 
 class PlatformViewSet(ModelViewSet):
@@ -49,7 +53,8 @@ class AccountViewSet(ModelViewSet):
         # Apply filters based on query parameters
         if user_id is not None:
             queryset = queryset.filter(user_id=user_id)
-        
+            print(f"User ID: {user_id}")  # Debugging output
+
         if status is not None:
             queryset = queryset.filter(status=status)
         
@@ -60,6 +65,12 @@ class AccountViewSet(ModelViewSet):
             queryset = queryset.filter(platform__name=platform_name)
 
         return queryset
+
+    def put(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)
+
+    def patch(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)
 
 
 class AccountMetricViewSet(ModelViewSet):

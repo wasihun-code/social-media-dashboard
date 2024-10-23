@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import (
    Platform,
    Account, AccountMetric,
-   User, UserLocalInfo, UserNotification, 
+   User,
 )
 
 class UserAdmin(admin.ModelAdmin):
@@ -27,5 +27,4 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Platform)
 admin.site.register(Account, AccountAdmin)
 admin.site.register(AccountMetric, AccountMetricAdmin)
-admin.site.register(UserLocalInfo)
 
