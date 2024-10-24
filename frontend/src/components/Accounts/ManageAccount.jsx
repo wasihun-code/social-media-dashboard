@@ -13,14 +13,7 @@ const ManageAccount = ({accounts, loading}) => {
       </div>
 
       <div className="flex flex-row place-content-between">
-        <div className="flex flex-row border-2 rounded-xl gap-4 p-2">
-          <BsSearch className='place-self-center text-2xl' />
-          <input placeholder='Search...' className='p-2 px-2 rounded-lg' />
-        </div>
-        <Link className="flex flex-row gap-2 hover:text-white hover:bg-black place-self-end border-2   p-2 rounded-xl">
-          <BiPlus className='text-2xl place-self-center'/>
-          <h1 className="text-xl">Add Account</h1>
-        </Link>
+        <input placeholder='Search...' className='p-2 px-2 rounded-lg' />
       </div>
 
       <div className="w-full overflow-x-auto">

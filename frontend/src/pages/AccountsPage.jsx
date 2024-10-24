@@ -5,43 +5,14 @@ import { ImSpinner } from 'react-icons/im';
 import AccountsContext from '../providers/AccountsProvider';
 import ManageAccount from '../components/Accounts/ManageAccount';
 import { Link } from 'react-router-dom';
+import PlatformsContext from '../providers/PlatformsProvider';
 
 
 const AccountsPage = () => {
   const [accounts, loading] = useContext(AccountsContext);
 
-  const [platforms, setPlatforms] = useState([]);
-  const [loadingPlatforms, setLoadingPlatforms] = useState(false)
+  const [platforms, loadingPlatforms] = useContext(PlatformsContext);
 
-  const connectedPlatforms = accounts.map(account => account.platform);
-  // console.log(connectedPlatforms);
-
-  useEffect(() => {
-    const fetchPlatforms = async () => {
-      try {
-        const res = await fetch("http://127.0.0.1:9000/api/platforms")
-        
-        if (!res.ok) {
-          throw new Error("Network Error: Fetching Platforms to Connect")
-        }
-
-        const data = await res.json()
-
-        const availablePlatforms = data.filter(platform => !connectedPlatforms.includes(platform.id));
-        setPlatforms(availablePlatforms);
-
-      } catch {
-        console.log("Fetching Platforms failed")
-      } finally {
-        setLoadingPlatforms(false);
-      }
-    }
-    fetchPlatforms()
-  }, [])
-
-
-  
-  
 
   return (
     <div className='overflow-y-auto flex flex-col w-full'>
@@ -52,26 +23,23 @@ const AccountsPage = () => {
             </div>
             
             <div className="grid grid-rows-1 grid-cols-1 gap-4 w-full">
+              
+            <div className="grid grid-rows-1 gird-cols-1 md:grid-cols-2 gap-4 ">
               {
-                loadingPlatforms ? 
-                <div className="flex flex-row w-full col-span-1">
-                  <ImSpinner className='text-5xl' />
-                </div>
-                :
-                platforms.map((platform, index) => (
-                  <div key={platform.id} className="flex flex-col gap-4 sm:flex-row sm:place-content-between border-2 px-6 py-4 rounded-xl">
-                   
-                      <div className="flex flex-row gap-4">
-                        {/** <BsFacebook className='place-self-center text-2xl'/>**/}
-                        <h1 className="text-2xl place-self-center">{platform.name}</h1>
-                      </div>
-                    <Link className="flex flex-row gap-2 hover:text-white hover:bg-black place-self-end border-2   p-2 rounded-xl">
-                      <BiPlug className='place-self-center'/>
-                      <h1 className="text-xl">Connect</h1>
-                    </Link>
+                platforms.map((platform) => (
+                <div key={platform.id} className="flex gap-4 flex-row place-content-between border-2 px-6 py-4 rounded-xl">               
+                  <div className="flex flex-row gap-4 items-center justify-center">
+                    <img src={platform.icon} alt='platform-icon' className='h-max w-8' />
+                    <h1 className="text-xl place-self-center">{platform.name}</h1>
                   </div>
-                ))
-              }
+                  <Link className="flex flex-row gap-2 hover:text-white hover:bg-black place-self-end border-2   p-2 rounded-xl">
+                    <BiPlug className='place-self-center'/>
+                    <h1 className="text-lg">Connect</h1>
+                  </Link>
+                </div>
+              ))}
+            </div>
+
               
 
             </div>
