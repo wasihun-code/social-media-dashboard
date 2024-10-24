@@ -23,6 +23,7 @@ export const AccountsProvider = ({children}) => {
         const data = await res.json();
 
         setAccounts(data);
+        console.log(data)
         setLoading(false);
       } catch {
         console.log("Error Occured while fetching user account");

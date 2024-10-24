@@ -31,6 +31,7 @@ class User(models.Model):
 # Social Media Platforms
 class Platform(models.Model):
     name = models.CharField(max_length=32)
+    icon = models.ImageField(upload_to='platform_icon/', null=True, blank=True)
 
     def __str__(self):
         return self.name

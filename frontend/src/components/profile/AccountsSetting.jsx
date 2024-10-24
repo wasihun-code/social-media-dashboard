@@ -25,8 +25,8 @@ const AccountsSetting = () => {
                     <div key={account.id} className='flex flex-row place-content-between p-0 px-4 w-full'>
                       {/** Account */}
                       <div className='flex flex-row gap-4'>
-                          <div className='flex flex-row gap-4 px-4 py-2'>
-                            <FaFacebook className='place-self-center'/>
+                          <div className='flex flex-row gap-2 px-4 py-2 items-center'>
+                            <img src={account.platform.icon} alt='platform-icon' className='h-max w-6' />
                             <p className='place-self-center text-xl'>{account.name}</p>
                           </div>
                       </div>

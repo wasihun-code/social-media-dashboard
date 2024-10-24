@@ -45,8 +45,8 @@ const ManageAccount = ({accounts, loading}) => {
             { 
                 accounts.map((account) => (
                 <tr key={account.id}>
-                  <td className="px-4 py-3.5 flex flex-row gap-4">
-                    <BsFacebook className='place-self-center text-2xl' />
+                  <td className="px-4 py-3.5 flex flex-row gap-4 items-center">
+                    <img src={account.platform.icon} alt='platform-icon' className='h-max w-8' />
                     <h1 className="text-xl">{account.platform_name}</h1>
                   </td>
                   <td className="px-4 py-3">{account.name}</td>

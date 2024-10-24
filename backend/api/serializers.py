@@ -3,7 +3,7 @@ from .models import (
    Account, AccountMetric,
    User,
 )
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer
 from rest_framework import serializers
 
 
@@ -35,23 +35,41 @@ class UserSerializer(ModelSerializer):
         return None
 
 
-class PlatformSerializer(ModelSerializer):
+
+class PlatformSerializer(serializers.ModelSerializer):
+    icon = serializers.SerializerMethodField()
     class Meta:
-      model = Platform
-      fields = '__all__'
+        model = Platform
+        depth = 1
+        fields = ['name', 'icon']
+
+    def get_icon(self, obj):
+        if obj.icon:  # Assuming profile_image is a FileField or ImageField
+            return self.context['request'].build_absolute_uri(obj.icon.url)
+        return None
 
 
-class AccountSerializer(ModelSerializer):
-    platform_name = serializers.CharField(source='platform.name', read_only=True)
+class AccountSerializer(serializers.ModelSerializer):
+    # platform_icon = serializers.SerializerMethodField()
+    platform = PlatformSerializer()
+
     class Meta:
-      model = Account
-      fields = ['id', 'name', 'type', 'user', 'status', 'last_connected', 'platform_name', 'platform']
-      extra_kwargs = {
+        model = Account
+        depth = 1
+        fields = ['name', 'type', 'status', 'last_connected', 'platform']
+        extra_kwargs = {
           'name': {'required': False},
           'type': {'required': False},
           'platform': {'required': False},
           'user': {'required': False},
-      }
+        }
+
+    # This method is needed to provide the 'platform_icon' field
+    # def get_platform_icon(self, obj):
+    #     if obj.platform and obj.platform.icon:
+    #         return self.context['request'].build_absolute_uri(obj.platform.icon.url)
+    #     return None
+
 
 
 class AccountMetricSerializer(ModelSerializer):
